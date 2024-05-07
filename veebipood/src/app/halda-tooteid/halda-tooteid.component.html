@@ -1,0 +1,36 @@
+<form #tooteVorm="ngForm" (submit)="lisa(tooteVorm)">
+  <label>Pilt</label> <br>
+  <input ngModel name="pilt" type="text"> <br>
+  <label>Nimi</label> <br>
+  <input ngModel name="nimi" type="text"> <br>
+  <label>Hind</label> <br>
+  <input ngModel name="hind" type="number"> <br>
+  <label>Aktiivsus</label> <br>
+  <input ngModel name="aktiivne" type="checkbox"> <br>
+  <button type="submit">Sisesta</button> <br>
+</form>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Pilt</th>
+      <th>Nimi</th>
+      <th>Hind</th>
+      <th>Aktiivsus</th>
+      <th>Tegevused</th>
+    </tr>
+  </thead>
+  <tbody>
+  @for (toode of tooted; track toode; let i = $index) {
+    <tr>
+      <td> <img style="width: 100px;" src="{{toode.pilt}}" alt=""> </td>
+      <td>{{ toode.nimi }}</td>
+      <td>{{ toode.hind }}</td>
+      <td>{{ toode.aktiivne }}</td>
+      <td> <button (click)="kustuta(i)">x</button> </td>
+    </tr>
+  }
+  </tbody>
+</table>

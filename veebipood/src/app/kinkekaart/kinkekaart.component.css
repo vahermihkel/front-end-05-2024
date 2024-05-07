@@ -1,0 +1,11 @@
+.summa {
+  padding: 10px;
+  background-color: aliceblue;
+  font-size: 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.summa.aktiivne {
+  border: 2px solid rgb(220, 92, 220);
+}

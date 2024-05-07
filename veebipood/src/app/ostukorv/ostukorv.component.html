@@ -1,0 +1,23 @@
+
+<!-- <li *ngFor="let color of colors; track color">
+        {{color}}
+</li> -->
+
+<!-- <ul>
+  @for (color of colors; track color) {
+  <li>{{ color }}</li>
+  }
+</ul> -->
+
+<div>Ostukorvis olevate toodete arv: {{ tooted.length }} tk</div>
+<button (click)="tyhjenda()">Tühjenda</button>
+
+<div>
+  @for (toode of tooted; track toode; let i = $index) {
+    <div>{{ toode.nimi }} - {{ toode.hind }} €</div>
+    <button (click)="kustuta(i)">x</button>
+    <button (click)="lisa(toode)">Lisa lõppu juurde</button>
+  }
+</div>
+
+<div>Summa: {{ kokku() }} €</div>

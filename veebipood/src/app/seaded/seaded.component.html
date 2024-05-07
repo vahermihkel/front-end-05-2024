@@ -1,0 +1,21 @@
+<form>
+  <input [(ngModel)]="inputiLuger" type="text" name="email">
+</form>
+
+<div>{{inputiLuger}}</div>
+
+<br><br>
+
+<form #seadedForm="ngForm" (submit)="vormiSisestamine(seadedForm)">
+  <label for="eesnimi">Eesnimi</label> <br>
+  <input ngModel type="text" name="eesnimi"> <br>
+  <label for="perenimi">Perenimi</label> <br>
+  <input ngModel type="text" name="perenimi"> <br>
+  <label for="aadress">Aadress</label> <br>
+  <input ngModel type="text" name="aadress"> <br>
+  <label for="telefon">Telefon</label> <br>
+  <input ngModel type="text" name="telefon"> <br>
+  <label for="email">Email</label> <br>
+  <input ngModel type="text" name="email"> <br>
+  <button type="submit">Sisesta</button>
+</form>
