@@ -1,1 +1,10 @@
-<p>avaleht works!</p>
+@for (toode of tooted; track toode; let i = $index) {
+  <div>
+    <div> <img style="width: 100px;" src="{{toode.pilt}}" alt=""> </div>
+    <div>{{ toode.nimi }}</div>
+    <div>{{ toode.hind }}</div>
+    <div>{{ toode.aktiivne }}</div>
+    <button (click)="lisaOstukorvi(toode)">Lisa ostukorvi</button>
+    <button [routerLink]="['/toode', toode.nimi]">Vt detailsemalt</button>
+  </div>
+}

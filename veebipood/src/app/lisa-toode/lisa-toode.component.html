@@ -1,1 +1,40 @@
-<p>lisa-toode works!</p>
+<form (submit)="lisa()">
+  <label>Pilt</label> <br>
+  <input [(ngModel)]="pilt" name="pilt" type="text"> <br>
+  <label>Nimi</label> <br>
+  <input [(ngModel)]="nimi" name="nimi"><br>
+  <label>Hind</label> <br>
+  <input [(ngModel)]="hind" name="hind" type="number"> <br>
+  <label>Aktiivsus</label> <br>
+  <input [(ngModel)]="aktiivne" name="aktiivne" type="checkbox"> <br>
+  <button type="submit">Sisesta</button> <br>
+</form>
+
+<!-- <div>Tühja pildiga ei saa lisada!</div>
+<div>Tühja nimetusega ei saa lisada!</div> -->
+<div *ngIf="nimi.charAt(0).toUpperCase() !== nimi.charAt(0)">Väikse algustähega ei saa sisestada!</div>
+<div *ngIf="hind > 1000">Liiga suur hind!</div>
+<div *ngIf="hind < 0">Ei saa olla miinusmärgiga!</div>
+<div>{{message}}</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pilt</th>
+      <th>Nimi</th>
+      <th>Hind</th>
+      <th>Aktiivsus</th>
+      <th>Tegevused</th>
+    </tr>
+  </thead>
+  <tbody>
+  @for (toode of tooted; track toode; let i = $index) {
+    <tr>
+      <td> <img style="width: 100px;" src="{{toode.pilt}}" alt=""> </td>
+      <td>{{ toode.nimi }}</td>
+      <td>{{ toode.hind }}</td>
+      <td>{{ toode.aktiivne }}</td>
+    </tr>
+  }
+  </tbody>
+</table>

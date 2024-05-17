@@ -1,0 +1,26 @@
+<button [style]="aktiivneLinn === 'tallinn' ? 'text-decoration: underline' : ''" (click)="muudaLinn('tallinn')">Tallinn ({{ esindused["tallinn"].length }})</button>
+<button [style]="aktiivneLinn === 'tartu' ? 'text-decoration: underline' : ''" (click)="muudaLinn('tartu')">Tartu ({{ esindused["tartu"].length }})</button>
+<button [style]="aktiivneLinn === 'narva' ? 'text-decoration: underline' : ''" (click)="muudaLinn('narva')">Narva ({{ esindused["narva"].length }})</button>
+<button [style]="aktiivneLinn === 'parnu' ? 'text-decoration: underline' : ''" (click)="muudaLinn('parnu')">Pärnu ({{ esindused["parnu"].length }})</button>
+
+<br><br>
+<button (click)="sorteeriAZ()">Sorteeri A-Z</button>
+<button (click)="sorteeriZA()">Sorteeri Z-A</button>
+<button (click)="sorteeriTahedKasv()">Sorteeri tähtede arv kasvavalt</button>
+<button (click)="sorteeriTahedKah()">Sorteeri tähtede arv kahanevalt</button>
+<button (click)="sorteeriKolmasTahtAZ()">Sorteeri kolmas täht A-Z</button>
+<br><br>
+<button (click)="filtreeriEndsWithE()">Jäta alles e'ga lõppevad</button>
+<button (click)="filtreeriKellelOn9Tahte()">Jäta alles kellel on 9 tähte</button>
+<button (click)="filtreeriKellelOnVah7Tahte()">Jäta alles vähemalt 7 tähelised</button>
+<button (click)="filtreeriKesSisaldabIsLyhendit()">Jäta alles kes sisaldavad 'is' lühendit</button>
+<button (click)="filtreeriKellelOnKolmasTahtI()">Jäta alles kellel on kolmas täht 'i'</button>
+<br>
+
+@for (esindus of esindused[aktiivneLinn]; track esindus; let i = $index) {
+  <div>{{ esindus }}</div>
+  <button [routerLink]="['/esindus', aktiivneLinn, i]">Vt lähemalt</button>
+}
+
+<div>Kõikide esinduste tähed kokku: {{tahedKokku()}}</div>
+

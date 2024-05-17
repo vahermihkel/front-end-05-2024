@@ -1,10 +1,13 @@
 <!-- siia tuleb menüü -->
-<button routerLink="/">Avalehele</button>
-<button routerLink="/kinkekaart">Kinkekaardid</button>
-<button routerLink="/lisa-toode">Lisa toode</button>
-<button routerLink="/ostukorv">Ostukorv</button>
-<button routerLink="/seaded">Seaded</button>
-<button routerLink="/halda">Halda tooteid</button>
+<button routerLinkActive="aktiivne-url" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Avalehele</button>
+<button routerLinkActive="aktiivne-url" exact routerLink="/kinkekaart">Kinkekaardid</button>
+<button routerLinkActive="aktiivne-url" routerLink="/lisa-toode">Lisa toode</button>
+<button routerLinkActive="aktiivne-url" routerLink="/ostukorv">Ostukorv</button>
+<button routerLinkActive="aktiivne-url" routerLink="/seaded">Seaded</button>
+<button routerLinkActive="aktiivne-url"routerLink="/halda">Halda tooteid</button>
+<button routerLinkActive="aktiivne-url" routerLink="/esindused">Esindused</button>
+<button routerLinkActive="aktiivne-url" routerLink="/tarnija">Tarnija</button>
+
 
 <!-- siia tulevad leheküljed, vastavalt routes-dele -->
 <router-outlet />

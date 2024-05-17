@@ -1,18 +1,30 @@
 import { Component } from '@angular/core';
+import { OstukorvService } from '../services/ostukorv.service';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { PakiautomaadidService } from '../services/pakiautomaadid.service';
+import { Toode } from '../models/toode';
+import { Pakiautomaat } from '../models/pakiautomaat';
 
 @Component({
   selector: 'app-ostukorv',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './ostukorv.component.html',
   styleUrl: './ostukorv.component.css'
 })
 export class OstukorvComponent {
-  tooted = [
-    {nimi: "Coca", hind: 3}, 
-    {nimi: "Fanta", hind: 2}, 
-    {nimi: "Sprite", hind: 2.5}
-  ]
+  tooted = this.ostukorvService.ostukorv;
+  pakiautomaadid: Pakiautomaat[] = [];
+
+  constructor(private ostukorvService: OstukorvService,
+    private pakiautomaadidService: PakiautomaadidService
+  ){}
+
+  ngOnInit() {
+    this.pakiautomaadidService.saaPakiautomaadid()
+      .subscribe(vastus => this.pakiautomaadid = vastus.filter(e => e.A0_NAME === "EE"))
+  }
 
   tyhjenda() {
     this.tooted = [];
@@ -22,7 +34,7 @@ export class OstukorvComponent {
     this.tooted.splice(index, 1); 
   }
 
-  lisa(toode: {nimi: string, hind: number}) {
+  lisa(toode: Toode) {
     this.tooted.push(toode);
   }
 

@@ -1,16 +1,20 @@
 <form #tooteVorm="ngForm" (submit)="lisa(tooteVorm)">
   <label>Pilt</label> <br>
-  <input ngModel name="pilt" type="text"> <br>
+  <input ngModel name="pilt" type="text" required> <br>
   <label>Nimi</label> <br>
-  <input ngModel name="nimi" type="text"> <br>
+  <input ngModel name="nimi" [type]="showNimi ? 'text' : 'password'" required>   
+  <button type="button" (click)="changeShowNimi()">{{ showNimi ? "Varja" : "Näita" }}</button>
+  <br>
   <label>Hind</label> <br>
-  <input ngModel name="hind" type="number"> <br>
+  <input ngModel name="hind" type="number" required> <br>
   <label>Aktiivsus</label> <br>
   <input ngModel name="aktiivne" type="checkbox"> <br>
-  <button type="submit">Sisesta</button> <br>
+  <button [disabled]="isNimiInvalid(tooteVorm) || tooteVorm.invalid" type="submit">Sisesta</button> <br>
 </form>
 
-
+<div *ngIf="isNimiInvalid(tooteVorm)">
+  Ilma C täheta ei saa toodet lisada!
+</div>
 
 <table>
   <thead>
