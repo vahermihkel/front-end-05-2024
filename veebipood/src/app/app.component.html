@@ -1,13 +1,24 @@
 <!-- siia tuleb menüü -->
-<button routerLinkActive="aktiivne-url" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Avalehele</button>
-<button routerLinkActive="aktiivne-url" exact routerLink="/kinkekaart">Kinkekaardid</button>
-<button routerLinkActive="aktiivne-url" routerLink="/lisa-toode">Lisa toode</button>
-<button routerLinkActive="aktiivne-url" routerLink="/ostukorv">Ostukorv</button>
-<button routerLinkActive="aktiivne-url" routerLink="/seaded">Seaded</button>
-<button routerLinkActive="aktiivne-url"routerLink="/halda">Halda tooteid</button>
-<button routerLinkActive="aktiivne-url" routerLink="/esindused">Esindused</button>
-<button routerLinkActive="aktiivne-url" routerLink="/tarnija">Tarnija</button>
+<button routerLinkActive="aktiivne-url" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">{{'nav.homepage' | translate}}</button>
+<button routerLinkActive="aktiivne-url" exact routerLink="/kinkekaart">{{'nav.giftcards' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/lisa-toode">{{'nav.add-product' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/ostukorv">{{'nav.cart' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/seaded">{{'nav.settings' | translate}}</button>
+<button routerLinkActive="aktiivne-url"routerLink="/halda">{{'nav.maintain-products' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/esindused">{{'nav.esindused' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/tarnija">{{'nav.supplier' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/kategooria">{{'nav.category' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/pildid">{{'nav.pictures' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/poed">{{'nav.shops' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/map">{{'nav.map' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/contact-us">{{'nav.contact-us' | translate}}</button>
 
+<br>
+<button [class.aktiivne]="keel === 'est'" (click)="muudaKeel('est')">EST</button>
+<button [class.aktiivne]="keel === 'eng'" (click)="muudaKeel('eng')">ENG</button>
+<button [class.aktiivne]="keel === 'rus'" (click)="muudaKeel('rus')">RUS</button>
+<button (click)="muudaMode()" *ngIf="!darkMode">Dark</button>
+<button (click)="muudaMode()" *ngIf="darkMode">Light</button>
 
 <!-- siia tulevad leheküljed, vastavalt routes-dele -->
 <router-outlet />

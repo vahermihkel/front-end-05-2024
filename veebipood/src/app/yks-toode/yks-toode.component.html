@@ -1,4 +1,8 @@
-<div> <img style="width: 100px;" src="{{toode.pilt}}" alt=""> </div>
-<div>{{ toode.nimi }}</div>
-<div>{{ toode.hind }}</div>
-<i *ngIf="!toode.aktiivne">Toode pole aktiivne</i>
+<div *ngIf="toode !== undefined">
+  <div> <img style="width: 100px;" src="{{toode.pilt}}" alt=""> </div>
+  <div>{{ toode.nimi }}</div>
+  <div>{{ toode.hind }}</div>
+  <i *ngIf="!toode.aktiivne">Toode pole aktiivne</i>
+</div>
+
+<app-loader *ngIf="isLoading" />

@@ -20,15 +20,21 @@
   <button (click)="tyhjenda()">Tühjenda</button>
 
   <div>
-    @for (toode of tooted; track toode; let i = $index) {
-      <div>{{ toode.nimi }} - {{ toode.hind }} €</div>
+    @for (t of tooted; track t; let i = $index) {
+      <div>{{ t.toode.nimi }} - {{ t.toode.hind | price }}</div>
+      <button (click)="vahendaKogus(i)">-</button>
+      <div>{{ t.kogus }} tk</div>
+      <button (click)="suurendaKogus(i)">+</button>
+      <div>{{ t.toode.hind * t.kogus | price }}</div>
       <button (click)="kustuta(i)">x</button>
-      <button (click)="lisa(toode)">Lisa lõppu juurde</button>
+      <!-- <button (click)="lisa(t)">Lisa lõppu juurde</button> -->
     }
   </div>
 
   <div>Summa: {{ kokku() }} €</div>
-
+  
+  <button (click)="maksa()">Maksa</button>
+  <br>
 
   <select>
     @for (pm of pakiautomaadid; track pm) {

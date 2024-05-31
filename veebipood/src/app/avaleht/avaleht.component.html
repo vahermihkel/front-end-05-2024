@@ -1,9 +1,20 @@
+<!-- <div>{{ kuupaev | date:'short' }}</div>
+<div>{{ kuupaev | date:'shortTime' }}</div>
+<div>{{ kuupaev | date:'shortDate' }}</div>
+<div>{{ kuupaev | date:'mediumDate' }}</div>
+<div>{{ kuupaev | date:'mediumTime' }}</div>
+<div>{{ kuupaev | date:'d.MM.yyyy H:mm' }}</div>
+<div>{{ 0.5 | percent}}</div>
+
+<div>{{ tooted | json }}</div> -->
+
 @for (toode of tooted; track toode; let i = $index) {
   <div>
     <div> <img style="width: 100px;" src="{{toode.pilt}}" alt=""> </div>
-    <div>{{ toode.nimi }}</div>
-    <div>{{ toode.hind }}</div>
+    <div>{{ toode.nimi | shortener:4 }}</div>
+    <div>{{ toode.hind | price }}</div>
     <div>{{ toode.aktiivne }}</div>
+    <div>{{ toode.kategooria }}</div>
     <button (click)="lisaOstukorvi(toode)">Lisa ostukorvi</button>
     <button [routerLink]="['/toode', toode.nimi]">Vt detailsemalt</button>
   </div>

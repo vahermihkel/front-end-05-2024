@@ -1,3 +1,7 @@
 .aktiivne-url {
   font-weight: bold;
 }
+
+.aktiivne {
+  text-decoration: underline;
+}

@@ -4,11 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../loader/loader.component';
 import { Product } from '../models/product';
+import { ShortenerPipe } from '../pipes/shortener.pipe';
 
 @Component({
   selector: 'app-tarnija',
   standalone: true,
-  imports: [CommonModule, FormsModule, LoaderComponent],
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    LoaderComponent, 
+    ShortenerPipe
+  ],
   templateUrl: './tarnija.component.html',
   styleUrl: './tarnija.component.css'
 })

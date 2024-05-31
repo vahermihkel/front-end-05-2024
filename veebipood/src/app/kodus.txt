@@ -1,0 +1,18 @@
+kategooriad järgi:
+
+pildid andmebaasi
+url
+alt
+header
+text
+
+poed andmebaasi
+name
+latitude (numbriline)
+longitude (numbriline)
+openTime
+
+
+Tegelased firebase projekt
+Tegelased andmebaasi
+

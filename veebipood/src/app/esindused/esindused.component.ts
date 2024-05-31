@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { EsindusService } from '../services/esindus.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-esindused',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslateModule],
   templateUrl: './esindused.component.html',
   styleUrl: './esindused.component.css'
 })

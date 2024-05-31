@@ -1,8 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ToodeService } from '../services/toode.service';
+import { RouterLink } from '@angular/router';
+import { Toode } from '../models/toode';
+import { KategooriaService } from '../services/kategooria.service';
+import { Kategooria } from '../models/kategooria';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-halda-tooteid',
@@ -10,19 +15,28 @@ import { ToodeService } from '../services/toode.service';
   imports: [ // HTML
     CommonModule, // *ngIf
     FormsModule, // ngForm, [(ngModel)]
+    RouterLink, // routerLink
+    TranslateModule
   ],
   templateUrl: './halda-tooteid.component.html',
   styleUrl: './halda-tooteid.component.css'
 })
-export class HaldaTooteidComponent {
-  tooted = this.toodeService.tooted;
+export class HaldaTooteidComponent implements OnInit {
+  tooted: Toode[] = [];
+  kategooriad: Kategooria[] = [];
 
   showNimi = false;
 
   // TypeScript --> funktsioone või muutujaid välja kutsuda
   constructor(private toastr: ToastrService,
-    private toodeService: ToodeService
+    private toodeService: ToodeService,
+    private kategooriaService: KategooriaService
   ) {}
+
+  ngOnInit(): void {
+    this.toodeService.saaTooted().subscribe(vastus => this.tooted = vastus); 
+    this.kategooriaService.saaKategooriad().subscribe(vastus => this.kategooriad = vastus); 
+  }
 
   kustuta(index: number) {
     this.tooted.splice(index,1);
@@ -31,6 +45,7 @@ export class HaldaTooteidComponent {
       closeButton: true,
       positionClass: "toast-bottom-right"
     });
+    this.toodeService.uuendaTooted(this.tooted).subscribe();
   }
 
   lisa(vorm: NgForm) {
@@ -43,6 +58,8 @@ export class HaldaTooteidComponent {
     console.log(vorm.value.hind)
     this.tooted.push(vorm.value); // <-- peab minema vormi seest lisatud väärtused
     vorm.reset();
+    this.toodeService.uuendaTooted(this.tooted).subscribe();
+    // ilus oleks, et toast tuleb siis kui subscribe sisu tehtud
     this.toastr.success('Edukalt lisatud!', "", {
       timeOut: 3000,
       closeButton: true,
@@ -55,6 +72,9 @@ export class HaldaTooteidComponent {
   }
 
   isNimiInvalid(tooteVorm: NgForm): boolean {
+    if (tooteVorm.controls['nimi'] === undefined) {
+      return true;
+    }
     return tooteVorm.controls['nimi'].touched && 
         tooteVorm.value.nimi.includes('C') === false;
   }

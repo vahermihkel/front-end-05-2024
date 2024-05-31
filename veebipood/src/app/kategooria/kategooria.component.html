@@ -1,0 +1,10 @@
+<form #tooteVorm="ngForm" (submit)="lisa(tooteVorm)">
+  <label>Nimi</label> <br>
+  <input ngModel name="nimi">   
+  <button>Sisesta</button> <br>
+</form>
+
+@for (kategooria of kategooriad; track kategooria; let i = $index) {
+  <div>{{ kategooria.nimi }}</div>
+  <button (click)="kustuta(i)">x</button>
+}

@@ -4,10 +4,10 @@
 <button [style]="aktiivneLinn === 'parnu' ? 'text-decoration: underline' : ''" (click)="muudaLinn('parnu')">Pärnu ({{ esindused["parnu"].length }})</button>
 
 <br><br>
-<button (click)="sorteeriAZ()">Sorteeri A-Z</button>
-<button (click)="sorteeriZA()">Sorteeri Z-A</button>
-<button (click)="sorteeriTahedKasv()">Sorteeri tähtede arv kasvavalt</button>
-<button (click)="sorteeriTahedKah()">Sorteeri tähtede arv kahanevalt</button>
+<button (click)="sorteeriAZ()">{{'sort.a-z' | translate}}</button>
+<button (click)="sorteeriZA()">{{'sort.z-a' | translate}}</button>
+<button (click)="sorteeriTahedKasv()">{{'sort.letters-asc' | translate}}</button>
+<button (click)="sorteeriTahedKah()">{{'sort.letters-desc' | translate}}</button>
 <button (click)="sorteeriKolmasTahtAZ()">Sorteeri kolmas täht A-Z</button>
 <br><br>
 <button (click)="filtreeriEndsWithE()">Jäta alles e'ga lõppevad</button>

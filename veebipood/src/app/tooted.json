@@ -1,0 +1,20 @@
+[
+  {
+    "aktiivne": true,
+    "kategooria": "", "hind": 4,
+    "nimi": "Coca",
+    "pilt": "https://www.cokesolutions.com/content/cokesolutions/site/us/en/products/brands/coca-cola/coca-cola.main-image.290-417.png"
+  },
+  {
+    "aktiivne": false,
+    "kategooria": "", "hind": 7,
+    "nimi": "Fanta",
+    "pilt": "https://www.bigbasket.com/media/uploads/p/xxl/251041_9-fanta-soft-drink-orange-flavoured.jpg"
+  },
+  {
+    "aktiivne": true,
+    "kategooria": "", "hind": 2.5,
+    "nimi": "Sprite",
+    "pilt": "https://www.coca-cola.com/content/dam/onexp/gb/en/product/sprite-low-cal-02.png"
+  }
+]

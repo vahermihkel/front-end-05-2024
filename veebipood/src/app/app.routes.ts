@@ -10,6 +10,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TarnijaComponent } from './tarnija/tarnija.component';
 import { YksToodeComponent } from './yks-toode/yks-toode.component';
 import { YksEsindusComponent } from './yks-esindus/yks-esindus.component';
+import { MuudaToodeComponent } from './muuda-toode/muuda-toode.component';
+import { KategooriaComponent } from './kategooria/kategooria.component';
+import { ShopComponent } from './shop/shop.component';
+import { ImageComponent } from './image/image.component';
+import { MapComponent } from './map/map.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 export const routes: Routes = [
   {path: "", component: AvalehtComponent},
@@ -21,7 +27,13 @@ export const routes: Routes = [
   {path: "esindused", component: EsindusedComponent},
   {path: "tarnija", component: TarnijaComponent},
   {path: "toode/:nimi", component: YksToodeComponent},
+  {path: "muuda-toode/:nimi", component: MuudaToodeComponent},
   {path: "esindus/:linn/:index", component: YksEsindusComponent},
+  {path: "kategooria", component: KategooriaComponent},
+  {path: "poed", component: ShopComponent},
+  {path: "pildid", component: ImageComponent},
+  {path: "map", component: MapComponent},
+  {path: "contact-us", component: ContactUsComponent},
   {path: "**", component: NotFoundComponent},
 ];
 

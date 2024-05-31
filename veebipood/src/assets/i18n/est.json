@@ -1,0 +1,26 @@
+{
+	"nav": {
+		"homepage": "Avalehele",
+		"giftcards": "Kinkekaardid",
+		"add-product": "Lisa toode",
+    "cart": "Ostukorv",
+    "settings": "Seaded",
+    "maintain-products": "Halda tooteid",
+    "esindused": "Esindused",
+    "supplier": "Tarnija",
+    "category": "Kategooria",
+    "pictures": "Halda pilte",
+    "shops": "Halda poode",
+    "map": "Kaart poodidest"
+	},
+	"form": {
+		"product-name": "Toote nimi",
+		"product-price": "Toote hind"
+	},
+	"sort": {
+		"a-z": "Sorteeri A-Z",
+    "z-a": "Sorteeri Z-A",
+    "letters-asc": "Sorteeri tähed kasvavalt",
+    "letters-desc": "Sorteeri tähed kahanevalt"
+	}
+}
