@@ -1,0 +1,38 @@
+<ng-container *ngIf="isLoading; else elseTemplate">
+  <app-loader />
+</ng-container>
+<ng-template #elseTemplate>
+  
+  <br><br><br>
+  <button [disabled]="activePage === 1" (click)="changePage(activePage-1)"><</button>
+  @for (p of pages | pageCenter: activePage; track p) {
+    <button (click)="changePage(p)" [class.active]="p === activePage">{{p}}</button>
+  }
+  <button [disabled]="activePage === pages[pages.length-1]" (click)="changePage(activePage+1)">></button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Make</th>
+        <th>Model</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 
+        activePage * 10 - 10, activePage*10
+        1 ->  0,10
+        2 -> 10,20
+        3 -> 20,30
+      -->
+    @for (a of autod | slice: (activePage-1) * pageSize : activePage * pageSize; track a) {
+      <tr>
+        <td>{{ a.id }}</td>
+        <td>{{ a.make }}</td>
+        <td>{{ a.model }}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+
+</ng-template>

@@ -3,21 +3,19 @@ import { ToastrService } from 'ngx-toastr';
 import { ToodeService } from '../services/toode.service';
 import { OstukorvService } from '../services/ostukorv.service';
 import { Toode } from '../models/toode';
-import { RouterLink } from '@angular/router';
-import { ShortenerPipe } from '../pipes/shortener.pipe';
-import { PricePipe } from '../pipes/price.pipe';
 import { DatePipe, JsonPipe, PercentPipe } from '@angular/common';
+import { ToodeComponent } from './toode/toode.component';
+import { CardComponent } from '../components/card/card.component';
 
 @Component({
   selector: 'app-avaleht',
   standalone: true,
   imports: [
-    RouterLink, 
-    ShortenerPipe, 
-    PricePipe,
     DatePipe,
     PercentPipe,
-    JsonPipe
+    JsonPipe,
+    ToodeComponent,
+    CardComponent
   ],
   templateUrl: './avaleht.component.html',
   styleUrl: './avaleht.component.css'

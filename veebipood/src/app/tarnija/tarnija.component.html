@@ -17,6 +17,15 @@
     <span *ngIf="submitted" (click)="restore()" class="keyword">{{price}} X</span>
 </form>
 
+<ngb-pagination 
+  [pageSize]="pageSize"
+  [collectionSize]="tooted.length" 
+  [(page)]="page" 
+  [maxSize]="5"
+	[rotate]="true"
+	[ellipses]="false"
+  aria-label="Default pagination" />
+
 <table>
   <thead>
     <tr>
@@ -30,7 +39,7 @@
     </tr>
   </thead>
   <tbody>
-  @for (toode of tooted; track toode; let i = $index) {
+  @for (toode of tooted | slice: (page-1) * pageSize : page * pageSize; track toode; let i = $index) {
     <tr>
       <td>{{ toode.id }}</td>
       <td>{{ toode.title }}</td>

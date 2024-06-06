@@ -1,31 +1,23 @@
 import { Component } from '@angular/core';
 import { OstukorvService } from '../services/ostukorv.service';
 import { CommonModule } from '@angular/common';
-import { PakiautomaadidService } from '../services/pakiautomaadid.service';
-import { Pakiautomaat } from '../models/pakiautomaat';
 import { PricePipe } from '../pipes/price.pipe';
 import { PaymentService } from '../services/payment.service';
+import { PakiautomaadidComponent } from './pakiautomaadid/pakiautomaadid.component';
 
 @Component({
   selector: 'app-ostukorv',
   standalone: true,
-  imports: [CommonModule, PricePipe],
+  imports: [CommonModule, PricePipe, PakiautomaadidComponent],
   templateUrl: './ostukorv.component.html',
   styleUrl: './ostukorv.component.css'
 })
 export class OstukorvComponent {
   tooted = this.ostukorvService.saaOstukorv();
-  pakiautomaadid: Pakiautomaat[] = [];
 
   constructor(private ostukorvService: OstukorvService,
-    private pakiautomaadidService: PakiautomaadidService,
     private paymentService: PaymentService
   ){}
-
-  ngOnInit() {
-    this.pakiautomaadidService.saaPakiautomaadid()
-      .subscribe(vastus => this.pakiautomaadid = vastus.filter(e => e.A0_NAME === "EE"))
-  }
 
   tyhjenda() {
     this.tooted = [];
@@ -51,7 +43,7 @@ export class OstukorvComponent {
   }
 
   maksa() {
-    this.paymentService.makse().subscribe(vastus => {
+    this.paymentService.makse(this.kokku()).subscribe(vastus => {
       window.location.href = vastus.payment_link;
     })
   }

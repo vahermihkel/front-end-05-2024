@@ -8,14 +8,18 @@
 
 <div>{{ tooted | json }}</div> -->
 
+<app-card 
+  [header]="'TV ja internet suvilasse'" 
+  [content]="'Talvekuudel seadmete eest üüri maksma ei pea ning teenused saad peatada 90 päevaks tasuta. Vaatan tingimusi'" 
+  [buttonText]="'Soovin pakkumist'" 
+  [imageUrl]="''" />
+
 @for (toode of tooted; track toode; let i = $index) {
-  <div>
-    <div> <img style="width: 100px;" src="{{toode.pilt}}" alt=""> </div>
-    <div>{{ toode.nimi | shortener:4 }}</div>
-    <div>{{ toode.hind | price }}</div>
-    <div>{{ toode.aktiivne }}</div>
-    <div>{{ toode.kategooria }}</div>
-    <button (click)="lisaOstukorvi(toode)">Lisa ostukorvi</button>
-    <button [routerLink]="['/toode', toode.nimi]">Vt detailsemalt</button>
-  </div>
+  <app-toode [toode]="toode" (addToCart)="lisaOstukorvi($event)" />
 }
+
+<app-card 
+  [header]="'TV ja internet koju'" 
+  [content]="'Super pakkumine. Vaatan tingimusi'" 
+  [buttonText]="'Tahan rohkem teada'" 
+  [imageUrl]="''" />

@@ -65,7 +65,12 @@ export class AppComponent {
 
 // Alamkomponendid
 
-// Globaalne muutuja, mida saab reaalajas muuta
+// Globaalne muutuja, mida saab reaalajas muuta -> rxjs
+
+// Autentimine -> Firebase
+// URLi kaitse -> Guard
+
+// Alammenüü / Footer
 
 // T 21.mai
 // 7. N 23.mai

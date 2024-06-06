@@ -36,10 +36,6 @@
   <button (click)="maksa()">Maksa</button>
   <br>
 
-  <select>
-    @for (pm of pakiautomaadid; track pm) {
-      <option>{{ pm.NAME }}</option>
-    }
-  </select>
+  <app-pakiautomaadid />
 
 </ng-template>

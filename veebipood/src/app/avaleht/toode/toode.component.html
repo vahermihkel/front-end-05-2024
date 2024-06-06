@@ -1,0 +1,9 @@
+<div>
+  <div> <img style="width: 100px;" src="{{toode.pilt}}" alt=""> </div>
+  <div>{{ toode.nimi | shortener:4 }}</div>
+  <div>{{ toode.hind | price }}</div>
+  <div>{{ toode.aktiivne }}</div>
+  <div>{{ toode.kategooria }}</div>
+  <button (click)="addToCart.emit(toode)">Lisa ostukorvi</button>
+  <button [routerLink]="['/toode', toode.nimi]">Vt detailsemalt</button>
+</div>

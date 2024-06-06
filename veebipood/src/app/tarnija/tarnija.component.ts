@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../loader/loader.component';
 import { Product } from '../models/product';
 import { ShortenerPipe } from '../pipes/shortener.pipe';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-tarnija',
@@ -13,12 +14,15 @@ import { ShortenerPipe } from '../pipes/shortener.pipe';
     CommonModule, 
     FormsModule, 
     LoaderComponent, 
-    ShortenerPipe
+    ShortenerPipe,
+    NgbPaginationModule
   ],
   templateUrl: './tarnija.component.html',
   styleUrl: './tarnija.component.css'
 })
 export class TarnijaComponent {
+  page = 1;
+  pageSize = 3;
   tooted: Product[] = [];
   price = "";
   submitted = false;

@@ -16,6 +16,9 @@ import { ShopComponent } from './shop/shop.component';
 import { ImageComponent } from './image/image.component';
 import { MapComponent } from './map/map.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AutodComponent } from './tarnija/autod/autod.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 export const routes: Routes = [
   {path: "", component: AvalehtComponent},
@@ -34,6 +37,9 @@ export const routes: Routes = [
   {path: "pildid", component: ImageComponent},
   {path: "map", component: MapComponent},
   {path: "contact-us", component: ContactUsComponent},
+  {path: "autod", component: AutodComponent},
+  {path: "login", component: LoginComponent},
+  {path: "signup", component: SignupComponent},
   {path: "**", component: NotFoundComponent},
 ];
 
