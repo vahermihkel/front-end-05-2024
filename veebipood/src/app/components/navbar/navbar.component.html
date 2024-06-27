@@ -1,0 +1,33 @@
+<button routerLinkActive="aktiivne-url" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">{{'nav.homepage' | translate}}</button>
+<button routerLinkActive="aktiivne-url" exact routerLink="/kinkekaart">{{'nav.giftcards' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/ostukorv">{{'nav.cart' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/seaded">{{'nav.settings' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/esindused">{{'nav.esindused' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/map">{{'nav.map' | translate}}</button>
+<button routerLinkActive="aktiivne-url" routerLink="/contact-us">{{'nav.contact-us' | translate}}</button>
+
+<br><br>
+
+<ng-container *ngIf="loggedIn; else loggedOutTemplate">
+  <button routerLinkActive="aktiivne-url" routerLink="/lisa-toode">{{'nav.add-product' | translate}}</button>
+  <button routerLinkActive="aktiivne-url" routerLink="/halda">{{'nav.maintain-products' | translate}}</button>
+  <button routerLinkActive="aktiivne-url" routerLink="/tarnija">{{'nav.supplier' | translate}}</button>
+  <button routerLinkActive="aktiivne-url" routerLink="/kategooria">{{'nav.category' | translate}}</button>
+  <button routerLinkActive="aktiivne-url" routerLink="/pildid">{{'nav.pictures' | translate}}</button>
+  <button routerLinkActive="aktiivne-url" routerLink="/poed">{{'nav.shops' | translate}}</button>
+  <button routerLinkActive="aktiivne-url" routerLink="/autod">{{'nav.autod' | translate}}</button>
+  <button (click)="logout()">{{'nav.logout' | translate}}</button>
+</ng-container>
+<ng-template #loggedOutTemplate>
+  <button routerLinkActive="aktiivne-url" routerLink="/login">{{'nav.login' | translate}}</button>
+  <button routerLinkActive="aktiivne-url" routerLink="/signup">{{'nav.signup' | translate}}</button>
+</ng-template>
+
+<br><br>
+<span>{{totalSum | price}} €</span>
+<br><br>
+<button [class.aktiivne]="keel === 'est'" (click)="muudaKeel('est')">EST</button>
+<button [class.aktiivne]="keel === 'eng'" (click)="muudaKeel('eng')">ENG</button>
+<button [class.aktiivne]="keel === 'rus'" (click)="muudaKeel('rus')">RUS</button>
+<button (click)="muudaMode()" *ngIf="!darkMode">Dark</button>
+<button (click)="muudaMode()" *ngIf="darkMode">Light</button>

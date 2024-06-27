@@ -6,6 +6,7 @@ import { Toode } from '../models/toode';
 import { DatePipe, JsonPipe, PercentPipe } from '@angular/common';
 import { ToodeComponent } from './toode/toode.component';
 import { CardComponent } from '../components/card/card.component';
+import { TotalSumService } from '../services/total-sum.service';
 
 @Component({
   selector: 'app-avaleht',
@@ -26,7 +27,8 @@ export class AvalehtComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
     private toodeService: ToodeService,
-    private ostukorvService: OstukorvService
+    private ostukorvService: OstukorvService,
+    private totalSumService: TotalSumService
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +43,8 @@ export class AvalehtComponent implements OnInit {
       closeButton: true,
       positionClass: "toast-bottom-right"
     });
+    const newSum = this.totalSumService.totalSum.value + toode.hind;
+    this.totalSumService.totalSum.next(newSum);
   }
 
 }

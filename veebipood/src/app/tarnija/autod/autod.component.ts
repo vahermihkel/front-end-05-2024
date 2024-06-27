@@ -3,7 +3,7 @@ import { AutodService } from './autod.service';
 import { Auto } from './auto';
 import { CommonModule, SlicePipe } from '@angular/common';
 import { PageCenterPipe } from './page-center.pipe';
-import { LoaderComponent } from '../../loader/loader.component';
+import { LoaderComponent } from '../../components/loader/loader.component';
 
 @Component({
   selector: 'app-autod',

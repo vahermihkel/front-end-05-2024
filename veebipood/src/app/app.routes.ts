@@ -19,34 +19,27 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AutodComponent } from './tarnija/autod/autod.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   {path: "", component: AvalehtComponent},
   {path: "kinkekaart", component: KinkekaartComponent},
-  {path: "lisa-toode", component: LisaToodeComponent},
+  {path: "lisa-toode", component: LisaToodeComponent, canActivate: [authGuard]},
   {path: "ostukorv", component: OstukorvComponent},
   {path: "seaded", component: SeadedComponent},
-  {path: "halda", component: HaldaTooteidComponent},
+  {path: "halda", component: HaldaTooteidComponent, canActivate: [authGuard]},
   {path: "esindused", component: EsindusedComponent},
-  {path: "tarnija", component: TarnijaComponent},
+  {path: "tarnija", component: TarnijaComponent, canActivate: [authGuard]},
   {path: "toode/:nimi", component: YksToodeComponent},
-  {path: "muuda-toode/:nimi", component: MuudaToodeComponent},
+  {path: "muuda-toode/:nimi", component: MuudaToodeComponent, canActivate: [authGuard]},
   {path: "esindus/:linn/:index", component: YksEsindusComponent},
-  {path: "kategooria", component: KategooriaComponent},
-  {path: "poed", component: ShopComponent},
-  {path: "pildid", component: ImageComponent},
+  {path: "kategooria", component: KategooriaComponent, canActivate: [authGuard]},
+  {path: "poed", component: ShopComponent, canActivate: [authGuard]},
+  {path: "pildid", component: ImageComponent, canActivate: [authGuard]},
   {path: "map", component: MapComponent},
   {path: "contact-us", component: ContactUsComponent},
-  {path: "autod", component: AutodComponent},
+  {path: "autod", component: AutodComponent, canActivate: [authGuard]},
   {path: "login", component: LoginComponent},
   {path: "signup", component: SignupComponent},
   {path: "**", component: NotFoundComponent},
 ];
-
-// 17.05 R 9.00-12.15
-
-// 21.05 T 9.00-12.15
-// 23.05 N 9.00-12.15
-
-// 28.05 T 9.00-12.15
-// 31.05 R 9.00-12.15

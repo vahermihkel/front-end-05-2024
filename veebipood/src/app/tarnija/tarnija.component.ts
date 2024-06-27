@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TarnijaService } from '../services/tarnija.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LoaderComponent } from '../loader/loader.component';
+import { LoaderComponent } from '../components/loader/loader.component';
 import { Product } from '../models/product';
 import { ShortenerPipe } from '../pipes/shortener.pipe';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';

@@ -3,7 +3,7 @@ import { Toode } from '../models/toode';
 import { ToodeService } from '../services/toode.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { LoaderComponent } from '../loader/loader.component';
+import { LoaderComponent } from '../components/loader/loader.component';
 
 @Component({
   selector: 'app-yks-toode',

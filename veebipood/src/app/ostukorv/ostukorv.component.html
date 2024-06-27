@@ -31,7 +31,7 @@
     }
   </div>
 
-  <div>Summa: {{ kokku() }} €</div>
+  <div>Summa: {{ kokku() | price }} €</div>
   
   <button (click)="maksa()">Maksa</button>
   <br>
